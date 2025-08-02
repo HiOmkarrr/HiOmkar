@@ -96,8 +96,8 @@ const SEOHead = () => {
       url: window.location.href,
       image: `${window.location.origin}/assets/profile-image2.jpg`,
       sameAs: [
-        "https://www.linkedin.com/in/omkar-mondkar",
-        "https://github.com/omkar-mondkar",
+        "https://www.linkedin.com/in/omkar-mondkar-83aa86255/",
+        "https://github.com/HiOmkarrr/",
         "https://twitter.com/omkar_mondkar",
       ],
       knowsAbout: [
@@ -112,7 +112,7 @@ const SEOHead = () => {
         "MongoDB",
         "PostgreSQL",
       ],
-      alumniOf: "Computer Science",
+      alumniOf: "Pillai College of Engineering, New Panvel",
       workLocation: {
         "@type": "Place",
         name: "Remote/Global",

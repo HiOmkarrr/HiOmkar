@@ -11,10 +11,10 @@ const Landing = ({ setSelectedPage }) => {
   return (
     <section
       id="home"
-      className="md:flex md:justify-between md:items-center gap-8 sm:gap-12 lg:gap-16 py-12 sm:py-16 lg:py-20 px-4 sm:px-0 min-h-screen md:min-h-0"
+      className="pt-24 md:flex md:justify-between md:items-center gap-8 sm:gap-12 lg:gap-16 py-12 sm:py-16 lg:py-20 px-4 sm:px-0 min-h-screen md:min-h-0"
     >
       {/* IMAGE */}
-      <div className="md:order-2 flex justify-center basis-3/5 z-10 mt-8 sm:mt-22 lg:mt-16 md:mt-48">
+      <div className="md:order-2 flex justify-center basis-3/5 z-10 mt-8 sm:mt-12 lg:mt-16 md:mt-32">
         {isAboveMediumScreens ? (
           <div
             className="relative z-0 ml-8 sm:ml-12 lg:ml-20 before:absolute before:-top-10 sm:before:-top-15 lg:before:-top-20 before:-left-10 sm:before:-left-15 lg:before:-left-20

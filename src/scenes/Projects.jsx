@@ -31,7 +31,7 @@ const Project = ({ title, description, technologies }) => {
         <p className="text-xs text-neon-blue font-semibold">{technologies}</p>
       </div>
       <img
-        src={`../assets/${projectTitle}.jpeg`}
+        src={`../assets/${projectTitle}.png`}
         alt={`${title} - Web development project showcase`}
         className="w-full h-full object-cover"
       />
@@ -41,9 +41,9 @@ const Project = ({ title, description, technologies }) => {
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-12 sm:py-16 lg:py-20">
+    <section id="projects" className="pt-28 pb-12 sm:pt-24 sm:pb-16 lg:py-20">
       <motion.div
-        className="md:w-2/4 mx-auto text-center px-4 sm:px-0"
+        className="md:mt-8 md:w-2/4 mx-auto text-center px-4 sm:px-0"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
@@ -81,24 +81,27 @@ const Projects = () => {
           <div className="flex justify-center text-center items-center p-6 sm:p-8 lg:p-10 bg-gradient-neon w-full h-64 sm:h-80 lg:h-96 text-lg sm:text-xl lg:text-2xl font-playfair font-semibold text-white rounded-lg shadow-glow">
             BEAUTIFUL USER INTERFACES
           </div>
+          {/* link to add:  https://craftconnect-goyb.onrender.com/ */}
           <Project
-            title="Project 1"
-            description="Full-stack e-commerce platform built with React, Node.js, and MongoDB featuring real-time updates and secure payments."
-            technologies="React • Node.js • MongoDB • Stripe"
+            title="CraftConnect"
+            description="A marketplace platform connecting local artisans to global buyers through AI-powered product tagging and demand forecasting, built with Next.js, TypeScript, Drizzle ORM, Stripe integration, Tailwind CSS, and SEO optimization."
+            technologies="NextJS • Node.js • DrizzleDB • Stripe"
           />
+          {/* link to add:  https://career-compass-one.vercel.app/ */}
           <Project
-            title="Project 2"
-            description="Modern dashboard application with data visualization, built using React, TypeScript, and Chart.js with responsive design."
-            technologies="React • TypeScript • Chart.js • Tailwind"
+            title="Career-Compass"
+            description="An AI-driven web application that provides personalized career path recommendations based on user skills, interests, and market trends, built using HTML, Tailwind CSS, JavaScript, and PDF.js for document parsing."
+            technologies="HTML • JavaScript • PDF.js • CSS"
           />
 
           {/* ROW 2 */}
           <Project
-            title="Project 3"
-            description="Social media platform with real-time messaging, image sharing, and user authentication using MERN stack."
-            technologies="MongoDB • Express • React • Node.js"
+            title="FinAdvisor"
+            description="An intelligent financial advisor platform offering personalized budgeting, investment, and savings insights, developed using React, Tailwind CSS for UI, Django for backend logic, and MongoDB for scalable data storage."
+            technologies="Machine Learning • MongoDB • Express • React • Node.js • MaterialUI • Chart.js"
           />
-          <Project
+          {/* link to add:  */}
+          {/* <Project
             title="Project 4"
             description="Task management application with drag-and-drop functionality, team collaboration, and progress tracking."
             technologies="React • Redux • Node.js • PostgreSQL"
@@ -109,7 +112,7 @@ const Projects = () => {
             technologies="Python • TensorFlow • React • FastAPI"
           />
 
-          {/* ROW 3 */}
+          // ROW 3
           <Project
             title="Project 6"
             description="Real-time chat application with video calling, file sharing, and group messaging capabilities."
@@ -122,7 +125,7 @@ const Projects = () => {
           />
           <div className="flex justify-center text-center items-center p-6 sm:p-8 lg:p-10 bg-gradient-modern w-full h-64 sm:h-80 lg:h-96 text-lg sm:text-xl lg:text-2xl font-playfair font-semibold text-white rounded-lg shadow-glow">
             SMOOTH USER EXPERIENCE
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>

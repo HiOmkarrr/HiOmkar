@@ -56,25 +56,25 @@ export default function HomePage() {
         {isAboveMediumScreen && <DotGroup selectedPage={selectedPage} setSelectedPage={setSelectedPage} />}
         
         {/* LANDING SECTION */}
-        <div className="w-5/6 mx-auto relative z-10">
+        <div id="home" className="w-5/6 mx-auto relative z-10">
           <Landing setSelectedPage={setSelectedPage} />
           <LineGradient />
         </div>
         
         {/* SKILLS SECTION */}
-        <div className="w-5/6 mx-auto relative z-10">
+        <div id="skills" className="w-5/6 mx-auto relative z-10">
           <MySkills />
           <LineGradient />
         </div>
         
         {/* PROJECTS SECTION */}
-        <div className="w-5/6 mx-auto relative z-10">
+        <div id="projects" className="w-5/6 mx-auto relative z-10">
           <Projects />
           <LineGradient />
         </div>
         
         {/* CONTACT SECTION */}
-        <div className="w-5/6 mx-auto relative z-10">
+        <div id="contact" className="w-5/6 mx-auto relative z-10">
           <Contact />
         </div>
         
