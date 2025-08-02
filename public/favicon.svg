@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <rect width="32" height="32" rx="6" fill="#030213"></rect>
+    
+    <text x="10" y="22" fill="#ffffff" font-size="14" font-weight="700" font-family="system-ui, -apple-system, sans-serif">O</text>
+    <text x="19" y="22" fill="#ffffff" font-size="14" font-weight="700" font-family="system-ui, -apple-system, sans-serif">M</text>
+    <circle cx="26" cy="8" r="2" fill="#646cff" opacity="0.8"></circle>
+  </svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

@@ -22,6 +22,57 @@ const SEOHead = () => {
       document.head.appendChild(meta)
     }
 
+    // Add comprehensive favicon support
+    const addFavicon = (rel, type, sizes, href) => {
+      // Remove existing favicon with same attributes
+      const existing = document.querySelector(`link[rel="${rel}"][sizes="${sizes}"]`) || 
+                      document.querySelector(`link[rel="${rel}"][href="${href}"]`)
+      if (existing) existing.remove()
+      
+      const link = document.createElement("link")
+      link.rel = rel
+      if (type) link.type = type
+      if (sizes) link.sizes = sizes
+      link.href = href
+      document.head.appendChild(link)
+    }
+
+    // Standard favicon
+    addFavicon("icon", "image/x-icon", null, "/favicon.ico")
+    
+    // PNG favicons for different sizes
+    addFavicon("icon", "image/png", "16x16", "/favicon-16x16.png")
+    addFavicon("icon", "image/png", "32x32", "/favicon-32x32.png")
+    
+    // Apple Touch Icon
+    addFavicon("apple-touch-icon", null, "180x180", "/apple-touch-icon.png")
+    
+    // Android Chrome icons
+    addFavicon("icon", "image/png", "192x192", "/android-chrome-192x192.png")
+    addFavicon("icon", "image/png", "512x512", "/android-chrome-512x512.png")
+    
+    // Web App Manifest
+    const existingManifest = document.querySelector('link[rel="manifest"]')
+    if (existingManifest) existingManifest.remove()
+    const manifestLink = document.createElement("link")
+    manifestLink.rel = "manifest"
+    manifestLink.href = "/site.webmanifest"
+    document.head.appendChild(manifestLink)
+
+    // Add theme color for mobile browsers
+    const addMetaTag = (name, content) => {
+      const existing = document.querySelector(`meta[name="${name}"]`)
+      if (existing) existing.remove()
+      const meta = document.createElement("meta")
+      meta.name = name
+      meta.content = content
+      document.head.appendChild(meta)
+    }
+
+    addMetaTag("theme-color", "#3B82F6")
+    addMetaTag("msapplication-TileColor", "#1E293B")
+    addMetaTag("msapplication-config", "/browserconfig.xml")
+
     // Add keywords meta tag
     const metaKeywords = document.querySelector('meta[name="keywords"]')
     if (metaKeywords) {

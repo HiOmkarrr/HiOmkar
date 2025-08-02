@@ -25,3 +25,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Helper/setup scripts (not needed in production)
+generate-favicons.js
+setup-favicon.sh
