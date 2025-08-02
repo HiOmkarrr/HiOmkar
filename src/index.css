@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, 
+body,
+#root,
+.app {
+    height: 100%;
+    background: linear-gradient(135deg, #0a0a0a 0%, #010026 50%, #050505 100%);
+    @apply text-white;
+    overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #00f5ff 0%, #8a2be2 50%, #ff1493 100%);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #00f5ff 0%, #ff1493 100%);
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Glass morphism utility classes */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Neon glow animations */
+@keyframes neon-glow {
+    0%, 100% {
+        text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff, 0 0 15px #00f5ff;
+    }
+    50% {
+        text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff, 0 0 30px #00f5ff;
+    }
+}
+
+.neon-text {
+    animation: neon-glow 2s ease-in-out infinite alternate;
+}
+
+/* Section spacing utilities */
+.section-spacing {
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+    .section-spacing {
+        margin-bottom: 6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-spacing {
+        margin-bottom: 8rem;
+    }
+}
+
+/* Prevent content overlap */
+.no-overlap {
+    clear: both;
+    overflow: hidden;
+}
