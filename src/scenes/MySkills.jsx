@@ -271,7 +271,7 @@ const MySkills = () => {
             <div className="w-full bg-gray-700 rounded-full h-2 mb-2">
               <div className="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full w-[75%] transition-all duration-1000"></div>
             </div>
-            <p className="text-xs text-gray-400">Advanced</p>
+            <p className="text-xs text-gray-400">Basic</p>
           </div>
         </motion.div>
 
