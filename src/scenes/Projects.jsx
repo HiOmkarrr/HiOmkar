@@ -100,6 +100,28 @@ const Projects = () => {
             description="An intelligent financial advisor platform offering personalized budgeting, investment, and savings insights, developed using React, Tailwind CSS for UI, Django for backend logic, and MongoDB for scalable data storage."
             technologies="Machine Learning • MongoDB • Express • React • Node.js • MaterialUI • Chart.js"
           />
+          <motion.div
+            variants={projectVariant}
+            className="relative hover:scale-105 transition-all duration-300 hover:shadow-glow rounded-lg overflow-hidden w-full h-64 sm:h-80 lg:h-96 bg-glass-bg border border-glass-border"
+          >
+            <iframe
+              src="https://ds-sem-7.streamlit.app/"
+              title="DS SEM 7 Streamlit App"
+              className="w-full h-[78%] border-0"
+              loading="lazy"
+            />
+            <div className="h-[22%] flex flex-col items-center justify-center px-4 text-center bg-black/30">
+              <p className="text-sm sm:text-base font-playfair text-white">DS SEM 7 Streamlit App</p>
+              <a
+                href="https://ds-sem-7.streamlit.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs sm:text-sm text-neon-blue hover:underline"
+              >
+                Open project
+              </a>
+            </div>
+          </motion.div>
           {/* link to add:  */}
           {/* <Project
             title="Project 4"
