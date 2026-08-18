@@ -101,18 +101,18 @@ const levelColors = {
   Learning: "text-gray-400 border-gray-500/30 bg-gray-500/10",
 }
 
-/* ── SKILL CARD COMPONENT ─────────────────────────────────────────────────── */
+/* ── COMPACT RESPONSIVE SKILL CARD COMPONENT ─────────────────────────────── */
 const SkillCard = ({ skill, index }) => {
   const { name, iconName, level, levelLabel, color } = skill
 
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.35, delay: index * 0.02 }}
-      className="group glass-card card-trace-hover rounded-2xl p-4 sm:p-5 hover:scale-[1.03] transition-all duration-300 relative overflow-hidden"
+      transition={{ duration: 0.3, delay: index * 0.015 }}
+      className="group glass-card card-trace-hover rounded-xl sm:rounded-2xl p-2.5 sm:p-4 hover:scale-[1.03] transition-all duration-300 relative overflow-hidden"
       style={{
         borderColor: "rgba(255, 255, 255, 0.08)",
       }}
@@ -123,22 +123,22 @@ const SkillCard = ({ skill, index }) => {
         style={{ background: color, boxShadow: `0 0 10px ${color}` }}
       />
 
-      <div className="flex flex-col h-full justify-between gap-3">
+      <div className="flex flex-col h-full justify-between gap-2 sm:gap-3">
         {/* Top Icon & Level badge */}
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-2">
           <div
-            className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0"
+            className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0"
             style={{
               background: `${color}15`,
               border: `1px solid ${color}35`,
               color: color,
             }}
           >
-            <TechIcon name={iconName} className="w-5 h-5 sm:w-6 sm:h-6" color={color} />
+            <TechIcon name={iconName} className="w-3.5 h-3.5 sm:w-5 sm:h-5" color={color} />
           </div>
 
           <span
-            className={`text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-full border ${
+            className={`text-[9px] sm:text-[11px] font-semibold px-1.5 sm:px-2 py-0.5 rounded-full border leading-tight ${
               levelColors[levelLabel] || "text-gray-400 border-gray-500/20"
             }`}
           >
@@ -148,18 +148,19 @@ const SkillCard = ({ skill, index }) => {
 
         {/* Skill Name */}
         <div>
-          <h4 className="font-playfair font-bold text-sm sm:text-base text-white group-hover:text-neon-blue transition-colors duration-200">
+          <h4 className="font-playfair font-bold text-xs sm:text-sm text-white group-hover:text-neon-blue transition-colors duration-200 truncate" title={name}>
             {name}
           </h4>
         </div>
 
         {/* Progress Bar */}
         <div className="w-full">
-          <div className="flex justify-between text-[10px] text-gray-500 font-mono mb-1">
-            <span>Proficiency</span>
+          <div className="flex justify-between text-[9px] sm:text-[10px] text-gray-500 font-mono mb-0.5 sm:mb-1">
+            <span className="hidden sm:inline">Proficiency</span>
+            <span className="sm:hidden">Lvl</span>
             <span>{level}%</span>
           </div>
-          <div className="w-full bg-gray-800/80 rounded-full h-1.5 overflow-hidden">
+          <div className="w-full bg-gray-800/80 rounded-full h-1 sm:h-1.5 overflow-hidden">
             <motion.div
               className="h-full rounded-full"
               style={{ background: `linear-gradient(90deg, ${color}99, ${color})` }}
@@ -190,9 +191,9 @@ const MySkills = () => {
       : SKILL_CATEGORIES.filter((cat) => cat.id === selectedFilter)
 
   return (
-    <section id="skills" className="pt-20 pb-12 sm:pt-24 sm:pb-16 lg:py-20">
+    <section id="skills" className="pt-16 pb-10 sm:pt-24 sm:pb-16 lg:py-20">
       {/* SECTION HEADER */}
-      <div className="md:flex md:justify-between md:items-end md:gap-16 mb-12 px-4 sm:px-0">
+      <div className="md:flex md:justify-between md:items-end md:gap-16 mb-8 sm:mb-12 px-2 sm:px-0">
         <motion.div
           className="md:w-1/2"
           initial={{ opacity: 0, x: -50 }}
@@ -200,11 +201,11 @@ const MySkills = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="font-playfair font-semibold text-3xl sm:text-4xl lg:text-5xl mb-4">
+          <h2 className="font-playfair font-semibold text-2xl sm:text-4xl lg:text-5xl mb-3 sm:mb-4">
             TECHNICAL <span className="bg-gradient-neon bg-clip-text text-transparent">SKILLS</span>
           </h2>
           <LineGradient width="w-1/3" />
-          <p className="mt-6 text-gray-400 leading-relaxed text-sm sm:text-base max-w-lg">
+          <p className="mt-4 sm:mt-6 text-gray-400 leading-relaxed text-xs sm:text-base max-w-lg">
             A comprehensive overview of programming languages, full-stack technologies, mobile toolkits,
             and machine learning frameworks categorized by domain.
           </p>
@@ -212,7 +213,7 @@ const MySkills = () => {
 
         {/* METRIC CHIPS */}
         <motion.div
-          className="flex flex-wrap gap-3 mt-8 md:mt-0 md:justify-end"
+          className="flex flex-wrap gap-2 sm:gap-3 mt-6 md:mt-0 md:justify-end"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -225,12 +226,12 @@ const MySkills = () => {
           ].map(({ val, label }) => (
             <div
               key={label}
-              className="glass-card rounded-2xl px-5 py-3 text-center min-w-[90px]"
+              className="glass-card rounded-xl sm:rounded-2xl px-3 py-2 sm:px-5 sm:py-3 text-center min-w-[75px] sm:min-w-[90px]"
             >
-              <div className="text-xl sm:text-2xl font-bold font-playfair bg-gradient-neon bg-clip-text text-transparent">
+              <div className="text-base sm:text-2xl font-bold font-playfair bg-gradient-neon bg-clip-text text-transparent">
                 {val}
               </div>
-              <div className="text-xs text-gray-400 font-opensans mt-0.5">{label}</div>
+              <div className="text-[10px] sm:text-xs text-gray-400 font-opensans mt-0.5">{label}</div>
             </div>
           ))}
         </motion.div>
@@ -238,7 +239,7 @@ const MySkills = () => {
 
       {/* CATEGORY FILTER BUTTONS */}
       <motion.div
-        className="flex flex-wrap gap-2.5 mb-12 px-4 sm:px-0"
+        className="flex flex-wrap gap-1.5 sm:gap-2.5 mb-8 sm:mb-12 px-2 sm:px-0"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -246,14 +247,14 @@ const MySkills = () => {
       >
         <button
           onClick={() => setSelectedFilter("all")}
-          className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+          className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 cursor-pointer ${
             selectedFilter === "all"
               ? "bg-gradient-neon text-white shadow-glow"
               : "glass-card text-gray-400 hover:text-white hover:border-white/20"
           }`}
         >
-          <span>All Technologies</span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/30 text-gray-200">
+          <span>All</span>
+          <span className="text-[9px] sm:text-[10px] px-1 sm:px-1.5 py-0.5 rounded-full bg-black/30 text-gray-200">
             {totalSkillsCount}
           </span>
         </button>
@@ -265,15 +266,15 @@ const MySkills = () => {
             <button
               key={category.id}
               onClick={() => setSelectedFilter(category.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+              className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 cursor-pointer ${
                 isActive
                   ? "bg-gradient-neon text-white shadow-glow"
                   : "glass-card text-gray-400 hover:text-white hover:border-white/20"
               }`}
             >
-              <Icon className="w-4 h-4" />
+              <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>{category.shortName}</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/30 text-gray-200">
+              <span className="text-[9px] sm:text-[10px] px-1 sm:px-1.5 py-0.5 rounded-full bg-black/30 text-gray-200">
                 {category.skills.length}
               </span>
             </button>
@@ -282,7 +283,7 @@ const MySkills = () => {
       </motion.div>
 
       {/* GROUPED / FILTERED SKILL CATEGORY BLOCKS */}
-      <div className="space-y-12 px-4 sm:px-0">
+      <div className="space-y-6 sm:space-y-12 px-1 sm:px-0">
         <AnimatePresence mode="wait">
           {activeCategories.map((category) => {
             const Icon = category.icon
@@ -294,25 +295,25 @@ const MySkills = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
-                className="glass-card-elevated rounded-3xl p-6 sm:p-8"
+                className="glass-card-elevated rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 md:p-8"
               >
                 {/* Category Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 mb-6 border-b border-white/5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-neon-blue/10 border border-neon-blue/30 flex items-center justify-center text-neon-blue">
-                      <Icon className="w-5 h-5" />
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 pb-3.5 sm:pb-6 mb-4 sm:mb-6 border-b border-white/5">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-neon-blue/10 border border-neon-blue/30 flex items-center justify-center text-neon-blue flex-shrink-0">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                     <div>
-                      <h3 className="font-playfair font-bold text-xl sm:text-2xl text-white">
+                      <h3 className="font-playfair font-bold text-base sm:text-xl md:text-2xl text-white">
                         {category.name}
                       </h3>
-                      <p className="text-xs sm:text-sm text-gray-400 font-opensans mt-0.5">
+                      <p className="text-[11px] sm:text-xs md:text-sm text-gray-400 font-opensans mt-0.5 line-clamp-1 sm:line-clamp-none">
                         {category.description}
                       </p>
                     </div>
                   </div>
 
-                  <span className="text-xs text-gray-400 font-mono px-3 py-1 rounded-full bg-white/5 self-start sm:self-auto">
+                  <span className="text-[10px] sm:text-xs text-gray-400 font-mono px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/5 self-start sm:self-auto">
                     {category.skills.length} Technologies
                   </span>
                 </div>
@@ -320,7 +321,7 @@ const MySkills = () => {
                 {/* Category Grid */}
                 <motion.div
                   layout
-                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-3.5 sm:gap-4"
+                  className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-2 sm:gap-3.5 md:gap-4"
                 >
                   {category.skills.map((skill, index) => (
                     <SkillCard key={skill.name} skill={skill} index={index} />
