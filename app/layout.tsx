@@ -16,11 +16,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} bg-[#050505]`} suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body className="bg-[#050505] text-white" suppressHydrationWarning>{children}</body>
     </html>
   )
 }
