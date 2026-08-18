@@ -155,7 +155,54 @@ export const TechIcon = ({ name, className = "w-6 h-6", color }) => {
         </svg>
       )
 
-    // ── AI/ML & Data ──
+    // ── AI/ML, GenAI & Retrieval Architecture ──
+    case "rag":
+      return (
+        <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+          <path d="M6 6h10" />
+          <path d="M6 10h10" />
+          <circle cx="16" cy="16" r="3" />
+          <path d="m18.5 18.5 2.5 2.5" />
+        </svg>
+      )
+    case "crag":
+      return (
+        <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="m9 12 2 2 4-4" />
+        </svg>
+      )
+    case "mmr":
+      return (
+        <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10" />
+          <line x1="12" y1="20" x2="12" y2="4" />
+          <line x1="6" y1="20" x2="6" y2="14" />
+          <path d="M3 7l3-3 3 3" />
+          <path d="M15 15l3-3 3 3" />
+        </svg>
+      )
+    case "hybrid embeddings":
+    case "hybrid":
+      return (
+        <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="9" cy="9" r="6" />
+          <circle cx="15" cy="15" r="6" />
+          <path d="M12 9v6" />
+          <path d="M9 12h6" />
+        </svg>
+      )
+    case "hyde":
+      return (
+        <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <path d="M9 13h6" strokeDasharray="2 2" />
+          <path d="M9 17h4" strokeDasharray="2 2" />
+          <circle cx="12" cy="15" r="4" fill="currentColor" fillOpacity="0.15" />
+        </svg>
+      )
     case "scikit-learn":
       return (
         <svg viewBox="0 0 24 24" className={className} fill="currentColor">
