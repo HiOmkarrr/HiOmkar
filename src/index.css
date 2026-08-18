@@ -9,18 +9,32 @@ body,
 #root,
 .app {
     height: 100%;
-    background: linear-gradient(135deg, #0a0a0a 0%, #010026 50%, #050505 100%);
     @apply text-white;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* ===================== BACKGROUND GRADIENT ===================== */
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+    background: linear-gradient(135deg, #0a0a0a 0%, #010026 50%, #050505 100%);
+    background-size: 400% 400%;
+    animation: gradient-flow 15s ease infinite;
+}
+
+/* ===================== SCROLLBAR ===================== */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -32,20 +46,28 @@ body,
     background: linear-gradient(135deg, #00f5ff 0%, #ff1493 100%);
 }
 
-/* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
 }
 
-/* Glass morphism utility classes */
+/* ===================== GLASS CARD ===================== */
 .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
-/* Neon glow animations */
+.glass-card-elevated {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ===================== NEON GLOW ANIMATIONS ===================== */
 @keyframes neon-glow {
     0%, 100% {
         text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff, 0 0 15px #00f5ff;
@@ -59,7 +81,190 @@ html {
     animation: neon-glow 2s ease-in-out infinite alternate;
 }
 
-/* Section spacing utilities */
+/* ===================== TYPEWRITER ===================== */
+@keyframes typewriter-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: #00f5ff;
+    margin-left: 3px;
+    vertical-align: middle;
+    animation: typewriter-blink 0.8s ease-in-out infinite;
+    box-shadow: 0 0 8px #00f5ff;
+    border-radius: 1px;
+}
+
+/* ===================== FLOAT ANIMATION ===================== */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* ===================== SHIMMER ===================== */
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+.shimmer-btn {
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.15) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    background-size: 200% auto;
+    animation: shimmer 2.5s linear infinite;
+}
+
+/* ===================== SCROLL PROGRESS ===================== */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00f5ff, #8a2be2, #ff1493);
+    transform-origin: left;
+    z-index: 9999;
+    box-shadow: 0 0 12px rgba(0, 245, 255, 0.8);
+}
+
+/* ===================== SECTION HEADING GLOW ===================== */
+@keyframes slide-in-glow {
+    from { width: 0; opacity: 0; }
+    to { width: 100%; opacity: 1; }
+}
+
+/* ===================== TIMELINE ===================== */
+.timeline-connector {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #00f5ff 0%, #8a2be2 50%, #ff1493 100%);
+    transform: translateX(-50%);
+    opacity: 0.4;
+}
+
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00f5ff, #8a2be2);
+    box-shadow: 0 0 16px rgba(0, 245, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===================== SKILL CATEGORY TABS ===================== */
+.skill-tab-pill {
+    position: relative;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid transparent;
+    white-space: nowrap;
+    background: none;
+    outline: none;
+}
+
+.skill-tab-pill:hover {
+    color: rgba(255,255,255,0.85);
+}
+
+.skill-tab-pill.active {
+    color: #fff;
+    border-color: rgba(0, 245, 255, 0.4);
+    background: rgba(0, 245, 255, 0.08);
+    box-shadow: 0 0 16px rgba(0, 245, 255, 0.2);
+}
+
+/* ===================== CARD TRACE GLOW ===================== */
+.card-trace-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-trace-hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: linear-gradient(135deg, rgba(0,245,255,0.08) 0%, rgba(138,43,226,0.08) 100%);
+    box-shadow: inset 0 0 0 1px rgba(0,245,255,0.25);
+}
+
+.card-trace-hover:hover::after {
+    opacity: 1;
+}
+
+/* ===================== PROJECT CARD GRADIENT BORDERS ===================== */
+.project-card-border {
+    position: relative;
+}
+
+.project-card-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #00f5ff, #8a2be2, #ff1493);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-card-border:hover::before {
+    opacity: 1;
+}
+
+/* ===================== FORM INPUT FOCUS GLOW ===================== */
+.form-input-glow {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 12px;
+    padding: 14px 18px;
+    width: 100%;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-input-glow::placeholder {
+    color: rgba(255,255,255,0.35);
+}
+
+.form-input-glow:focus {
+    border-color: rgba(0, 245, 255, 0.5);
+    background: rgba(0, 245, 255, 0.04);
+    box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.1), 0 0 20px rgba(0, 245, 255, 0.15);
+}
+
+.form-input-glow.error {
+    border-color: rgba(255, 20, 147, 0.6);
+    box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1);
+}
+
+/* ===================== SECTION SPACING ===================== */
 .section-spacing {
     margin-bottom: 4rem;
 }
@@ -76,8 +281,22 @@ html {
     }
 }
 
-/* Prevent content overlap */
-.no-overlap {
-    clear: both;
-    overflow: hidden;
+/* ===================== STAT COUNTER ===================== */
+@keyframes count-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-card {
+    animation: count-up 0.6s ease forwards;
+}
+
+/* ===================== CONTACT CARD GRADIENT RING ===================== */
+.contact-card {
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 28px;
 }

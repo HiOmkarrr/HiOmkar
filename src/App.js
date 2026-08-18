@@ -2,17 +2,19 @@
 
 import LineGradient from "./components/LineGradient"
 import ParticleBackground from "./components/ParticleBackground"
+import ScrollProgress from "./components/ScrollProgress"
 import Navbar from "./scenes/Navbar"
 import { useEffect, useState } from "react"
 import useMediaQuery from "./hooks/useMediaQuery"
 import DotGroup from "./scenes/DotGroup"
-import Testimonials from "./scenes/Testimonials"
+import Resume from "./scenes/Resume"
 import Landing from "./scenes/Landing"
 import MySkills from "./scenes/MySkills"
 import Projects from "./scenes/Projects"
 import Contact from "./scenes/Contact"
 import Footer from "./scenes/Footer"
 import SEOHead from "./components/SEOHead"
+import MouseGlow from "./components/MouseGlow"
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home")
@@ -26,30 +28,40 @@ function App() {
         setSelectedPage("home")
       } else {
         setIsTopOfPage(false)
-
-        // Get all sections
-        const sections = ["home", "skills", "projects", "testimonials", "contact"]
-        const scrollPosition = window.scrollY + 100
-
-        // Find current section based on scroll position
-        for (let i = sections.length - 1; i >= 0; i--) {
-          const section = document.getElementById(sections[i])
-          if (section && section.offsetTop <= scrollPosition) {
-            setSelectedPage(sections[i])
-            break
-          }
-        }
       }
     }
 
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setSelectedPage(entry.target.id)
+          }
+        })
+      },
+      { threshold: 0.5, rootMargin: "-100px 0px" }
+    )
+    
+    const sections = ["home", "skills", "projects", "resume", "contact"]
+    sections.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      observer.disconnect()
+    }
   }, [])
 
   return (
     <>
       <SEOHead />
-      <div className="app bg-gradient-to-br from-modern-dark via-deep-blue to-modern-darker relative min-h-screen">
+      <ScrollProgress />
+      <div className="app animated-gradient relative min-h-screen">
+        <MouseGlow />
         <ParticleBackground />
         <Navbar isTopOfPage={isTopOfPage} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
         <div className="w-5/6 mx-auto md:h-full relative z-10">
@@ -66,7 +78,7 @@ function App() {
         </div>
         <LineGradient />
         <div className="w-5/6 mx-auto md:h-full relative z-10">
-          <Testimonials />
+          <Resume />
         </div>
         <LineGradient />
         <div className="w-5/6 mx-auto md:h-full relative z-10">
